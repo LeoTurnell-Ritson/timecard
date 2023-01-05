@@ -73,15 +73,20 @@ class timecard:
             return False
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='timecard')
+    parser = argparse.ArgumentParser(description='lightweight work time tracking and analytics', prog='timecard')
     group = parser.add_mutually_exclusive_group(required=False)
-    group.add_argument('-a', '--add',      nargs='+', type=int)
-    group.add_argument('-r', '--remove',   nargs='+', type=int)
-    parser.add_argument('-d', '--day',     default=datetime.datetime.today().weekday())
-    parser.add_argument('-w', '--week',    default=datetime.datetime.today().isocalendar()[1])
-    parser.add_argument('-y', '--year',    default=datetime.datetime.today().isocalendar()[0])
-    parser.add_argument('-f', '--folder',  default= os.getenv("HOME") + '/.timecard')
-    parser.add_argument('-s', '--display', default=True, action='store_false')
-
-
+    group.add_argument('-a', '--add',      nargs='+', type=int,
+                       help='%(prog)s -a 9 10 11, adds 9:00-12:00')
+    group.add_argument('-r', '--remove',   nargs='+', type=int,
+                       help='%(prog)s -r 11, removes 11:00-12:00')
+    parser.add_argument('-d', '--day',     type=int, default=datetime.datetime.today().weekday(),
+                        help='day (current=%(default)s)')
+    parser.add_argument('-w', '--week',    type=int, default=datetime.datetime.today().isocalendar()[1],
+                        help='week (current=%(default)s)')
+    parser.add_argument('-y', '--year',    type=int, default=datetime.datetime.today().isocalendar()[0],
+                        help='year (current=%(default)s)')
+    parser.add_argument('-f', '--folder',  default= os.getenv("HOME") + '/.timecard',
+                        help='%(prog)s folder (default=%(default)s)')
+    parser.add_argument('-s', '--display', default=True, action='store_false',
+                        help='console display (default=%(default)s)')
     timecard(parser.parse_args())
