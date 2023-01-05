@@ -1,4 +1,3 @@
-#1;5202;0cimport sys
 import os
 import argparse
 import datetime
@@ -73,7 +72,7 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--day',     default=datetime.datetime.today().weekday())
     parser.add_argument('-w', '--week',    default=datetime.datetime.today().isocalendar()[1])
     parser.add_argument('-y', '--year',    default=datetime.datetime.today().isocalendar()[0])
-    parser.add_argument('-f', '--folder',  default='/home/llnt890/.timecard')
+    parser.add_argument('-f', '--folder',  default= os.getenv("HOME") + '/.timecard')
     parser.add_argument('-s', '--display', default=True, action='store_false')
 
 
