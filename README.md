@@ -1,19 +1,20 @@
 <h1 align="center">timecard</h1>
 
-##About
+## About
 Lightweight console based work time tracking and analytics.
 
-##Getting started
+## Getting started
 Clone the repo
 ```
 $ git clone https://github.com/LeoTurnell-Ritson/timecard.git
 ```
+
 Create an alias for timecard (for instance in .bashrc)
 ```
 $ alias timecard='python3 path/to/timecard.py'
 ```
 
-##Usage
+## Usage
 ```
 $ timecard --help
 usage: timecard [-h] [-a ADD [ADD ...] | -r REMOVE [REMOVE ...]] [-d DAY]
