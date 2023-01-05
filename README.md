@@ -5,14 +5,17 @@ Lightweight console based work time tracking and analytics.
 
 ##Getting started
 Clone the repo
-```$ git clone https://github.com/LeoTurnell-Ritson/timecard.git
+```
+$ git clone https://github.com/LeoTurnell-Ritson/timecard.git
 ```
 Create an alias for timecard (for instance in .bashrc)
-```$ alias timecard='python3 path/to/timecard.py'
+```
+$ alias timecard='python3 path/to/timecard.py'
 ```
 
 ##Usage
-```$ timecard --help
+```
+$ timecard --help
 usage: timecard [-h] [-a ADD [ADD ...] | -r REMOVE [REMOVE ...]] [-d DAY]
                 [-w WEEK] [-y YEAR] [-f FOLDER] [-s]
 
