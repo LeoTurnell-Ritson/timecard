@@ -44,7 +44,7 @@ class timecard:
                 self.frame[self.args.day][hour] = 0
 
     def read(self):
-        if os.path.exists(self.file):
+        if self.read_check():
             self.frame = numpy.loadtxt(self.file, dtype='int')
         else:
             self.frame = numpy.zeros((7, 24), dtype='int')
@@ -63,6 +63,14 @@ class timecard:
                 file.write('%s:%2.i ' %(day_code[day_counter], total))
                 day_counter +=1
             file.close()
+
+    def read_check(self):
+        if os.path.exists(self.file):
+            return True
+        else:
+            if not os.path.exists(self.args.folder):
+                os.mkdir(self.args.folder)
+            return False
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='timecard')
